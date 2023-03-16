@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.65e34bec.chunk.css",
+    "main.js": "/static/js/main.e21991b4.chunk.js",
+    "main.js.map": "/static/js/main.e21991b4.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.cd30bb7b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.cd30bb7b.js.map",
+    "static/css/2.ae9e5f60.chunk.css": "/static/css/2.ae9e5f60.chunk.css",
+    "static/js/2.616ab054.chunk.js": "/static/js/2.616ab054.chunk.js",
+    "static/js/2.616ab054.chunk.js.map": "/static/js/2.616ab054.chunk.js.map",
+    "static/js/3.56a8f4ef.chunk.js": "/static/js/3.56a8f4ef.chunk.js",
+    "static/js/3.56a8f4ef.chunk.js.map": "/static/js/3.56a8f4ef.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.ae9e5f60.chunk.css.map": "/static/css/2.ae9e5f60.chunk.css.map",
+    "static/css/main.65e34bec.chunk.css.map": "/static/css/main.65e34bec.chunk.css.map",
+    "static/js/2.616ab054.chunk.js.LICENSE.txt": "/static/js/2.616ab054.chunk.js.LICENSE.txt",
+    "static/media/Detail.css": "/static/media/create.1cffafce.jpg",
+    "static/media/createGame.css": "/static/media/depositphotos_130496110-stock-illustration-metallic-modern-design.c55ed758.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cd30bb7b.js",
+    "static/css/2.ae9e5f60.chunk.css",
+    "static/js/2.616ab054.chunk.js",
+    "static/css/main.65e34bec.chunk.css",
+    "static/js/main.e21991b4.chunk.js"
+  ]
+}
