@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 export function VideogamesAll() {
     return async function (dispatch) {
-        const dataBack = await axios.get('https://videogamebd-production.up.railway.app/videogames')
-        const dataGen = await axios.get('https://videogamebd-production.up.railway.app/genres')
+        const dataBack = await axios.get('http://localhost:3001/videogames')
+        const dataGen = await axios.get('http://localhost:3001/genres')
         return dispatch({
             type: "GET_VIDEOGAMES",
             payload: dataBack.data,
@@ -35,7 +35,7 @@ export function orderGames(payload) {
 export function searchGames(payloadI){
     return async function (dispatch) {
         try {
-            let axiosGetSearch = await axios.get(`https://videogamebd-production.up.railway.app/videogames?name=${payloadI}`)
+            let axiosGetSearch = await axios.get(`http://localhost:3001/videogames?name=${payloadI}`)
             return dispatch({
                 type: 'SEARCH',
                 payload: axiosGetSearch.data
@@ -53,7 +53,7 @@ export function searchGamesChange(payload){
 }
 export function detailsGame(payloadI){
     return async function (dispatch){
-        const dataBDAPI = await axios(`https://videogamebd-production.up.railway.app/videogame/${payloadI}`)
+        const dataBDAPI = await axios(`http://localhost:3001/videogame/${payloadI}`)
         return dispatch({
             type:"GET_DETAILS",
             payload: dataBDAPI.data
@@ -63,7 +63,7 @@ export function detailsGame(payloadI){
 export function postGames(payload){
     return async function(dispatch){
         try {
-            await axios.post('https://videogamebd-production.up.railway.app/videogames', payload).then(() =>
+            await axios.post('http://localhost:3001/videogames', payload).then(() =>
              true
            )
             

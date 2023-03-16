@@ -1,3 +1,6 @@
+body{
+    overflow: hidden;
+}
 .landingContainer{
     display: flex;
     height: 100vh;
@@ -6,7 +9,6 @@
     align-items: center;
     text-align: center;
     border: 1px solid black;
-    padding: 10px;
     background: url('../image/create.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,56 +23,50 @@ h1{
 .buttonLanding{
     background: none;
     border: none;
-    padding: 20px;
+    padding: 10px;
     width: 100px;
-    background-color: rgb(38, 228, 228);
-    border-radius: 10px;
-    box-shadow: 3px 3px 8px black;
-    animation: bounce 2s infinite;
+    border-radius: 5px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: bold;
+    background-color: black;
+    color: white;
+    position: relative;
+
+}
+.bg{
+    background-color: rgb(0, 255, 234);
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    bottom: 0px;
+    border-radius: 1px;
+    right: 0px;
+
 }
 .buttonLanding:hover{
     transform: scale(1.2);
-    transition: transform 1s;
+    transition: transform 0.3s;
     cursor: pointer;
     animation: none;
 }
-@keyframes bounce2 {
-            0%{ 
-                opacity:1;
-                transform: translateX(-3000px);
-            }
-            25%{
-                transform: scaleX(0px);}
-            30% {
-                transform: scale(1.2);
-            }
-            40%,
-            60% {
-                transform: rotate(-20deg) scale(1.2);
-            }
-            50% {
-                transform: rotate(20deg) scale(1.2);
-            }
-            70% {
-                transform: rotate(0deg) scale(1.2);
-            }
-            100% {
-                display: none;
-                transform: scale(1);
-            }
-    
+
+@keyframes bgBig {
+    from{
+        width: 0px;
+    }
+    to{
+        border-radius: 5px;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+    }
 }
-@keyframes bounce {
-    40%,
-    60% {
-        transform: rotate(-20deg)
+@keyframes bgBigOut {
+    from{
+        width: 100%;
+        height: 100%;
     }
-    50% {
-        transform: rotate(20deg)
-    }
-    70% {
-        transform: rotate(0deg)
+    to{
+        width: 8px;
     }
 }

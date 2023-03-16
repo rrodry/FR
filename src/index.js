@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import {store} from './store/store'
 
+window.scrollTo(0,110)
 
 ReactDOM.render(
   <Provider store = {store}>

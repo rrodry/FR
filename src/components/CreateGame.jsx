@@ -1,24 +1,22 @@
 import { useEffect, useState } from "react"
-import { VideogamesAll, postGames} from "../actions";
+import { VideogamesAll } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
-import { handleAddPlatform, handleAddGenders, handleSubmitCreate, handleInputAdd, handleInputAddImage, getBase64} from '../module/module'
-import { Link, useHistory,  } from "react-router-dom";
+import { handleAddGenders, handleSubmitCreate, handleInputAdd, handleInputAddImage, getBase64 } from '../module/module'
+import { Link, useHistory, } from "react-router-dom";
 import './body.css'
 import './createGame.css'
 export default function CreateGame(s) {
     const dispatch = useDispatch()
     const generosGet = useSelector((state) => state.gender)
-    const platformGet = useSelector((state) => state.platform)
     const [generosAdds, setAdds] = useState({
-        genders:[]
+        genders: []
     })
     const [inputSend, setInputSend] = useState({
         name: "",
         description: "",
-        launchDate:"",
-        rating:"",
-        genders: [],
-        platform: [],
+        launchDate: "",
+        rating: "",
+        genders: []
     })
     const history = useHistory()
     const [errors, setErrors] = useState({})
@@ -26,12 +24,15 @@ export default function CreateGame(s) {
         dispatch(VideogamesAll())
     }, [dispatch])
     console.log(generosAdds);
-    if (generosGet && platformGet) {
-        const platformSet = new Set(platformGet.flat())
+    if (generosGet) {
         const errorsLen = Object.keys(errors).length === 0
         return (
             <div className="containerDiv">
+
                 <form onSubmit={e => handleSubmitCreate(e, setInputSend, inputSend, dispatch, history)} >
+                        <div className="blur">
+                        </div>
+                        <h2>Create Your Game</h2>
                     <div className="divCreate">
                         <div className="dvInputCreate">
                             <label >{errors.name && <p>{errors.name}</p>}</label>
@@ -52,37 +53,26 @@ export default function CreateGame(s) {
                         <div className="dvInputCreate">
                             <label>{errors.src && <p>{errors.src}</p>}</label>
                             <label><img id="labelImage" className="imageLabel" src=""></img></label>
-                            <input className="inputCreate" id="imageFile" type="file" placeholder="Image" value={inputSend.image} name="image" 
-                            onChange={e => handleInputAddImage(e, setInputSend, inputSend, setErrors)} />
-                        </div>
-                    </div> 
-                    <div className="divCreate">
-                        <div className="divSelect">
-
-                            <select className="selectCreate" onChange={e => handleAddGenders(e, setInputSend, inputSend, setAdds, generosAdds)}>
-                                <option defaultValue>Genders</option>
-                                {generosGet.map(e => <option value={`${e.id}-${e.gender}`} key={e.id}>{e.gender}</option>)}
-                            </select>
-
-                            <select onChange={e => handleAddPlatform(e, setInputSend, inputSend)}>
-                                <option defaultValue>Platform</option>
-                                {[...platformSet].map(el =>
-                                    <option value={el} key={el}>{el}</option>)}
-                            </select>
-                        </div>
-                        <div>
-                            <label className="labelCreate"> {inputSend.platform.map(e => { return (<label>{e} </label>) })} </label>
-                        </div>
-                        <div>
-                            <label className="labelCreate"> {generosAdds?.genders.map(e => { return (<label>{e} - </label>) })} </label>
+                            <input className="inputCreate" id="imageFile" type="file" placeholder="Image" value={inputSend.image} name="image"
+                                onChange={e => handleInputAddImage(e, setInputSend, inputSend, setErrors)} />
                         </div>
                     </div>
-                <div>
-                    <button type="submit" disabled={ !errorsLen > 0 } >Create Game!</button>
-                    <Link to="/home">
-                        <button >Back to home</button>
-                    </Link>
-                </div>
+                    <div className="divSelect">
+
+                        <select className="selectCreate" onChange={e => handleAddGenders(e, setInputSend, inputSend, setAdds, generosAdds)}>
+                            <option defaultValue>Genders</option>
+                            {generosGet.map(e => <option value={`${e.id}-${e.gender}`} key={e.id}>{e.gender}</option>)}
+                        </select>
+                    </div>
+                    <div>
+                        <label className="labelCreate"> {generosAdds?.genders.map(e => { return (<label>{e} - </label>) })} </label>
+                    </div>
+                    <div>
+                        <button type="submit" disabled={!errorsLen > 0} >Create Game!</button>
+                        <Link to="/home">
+                            <button >Back to home</button>
+                        </Link>
+                    </div>
                 </form>
             </div>
         )
